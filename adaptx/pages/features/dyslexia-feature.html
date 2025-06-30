@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dyslexia-Friendly Features - AdaptX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../../styles/home.css" />
+    <link rel="stylesheet" href="../../styles/features/dyslexia-feature.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="web-name">AdaptX</div>
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="navbar-menu">
+          <a href="../home.html">Home</a>
+          <a href="../about.html">About Us</a>
+          <a href="../features.html">Accessibility Features</a>
+          <a href="../guidelines.html">Guidelines</a>
+          <a href="../contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="dyslexia-container">
+        <h1>Dyslexia-Friendly Features</h1>
+        <p class="subtitle">
+          Enhanced reading experience for individuals with dyslexia
+        </p>
+
+        <div class="features-grid">
+          <!-- Feature 1: Dyslexia-Friendly Fonts -->
+          <div class="feature-section">
+            <h2>1. Dyslexia-Friendly Fonts</h2>
+            <div class="feature-icon">📝</div>
+            <div class="feature-content">
+              <div class="font-selector">
+                <label for="font-family-select">Choose Font:</label>
+                <select id="font-family-select" onchange="changeDyslexiaFont()">
+                  <option value="Arial">Arial (Standard)</option>
+                  <option value="OpenDyslexic">OpenDyslexic</option>
+                  <option value="Lexend">Lexend</option>
+                  <option value="Comic Sans MS">Comic Sans MS</option>
+                  <option value="Verdana">Verdana</option>
+                  <option value="Inter">Inter</option>
+                </select>
+              </div>
+              <div class="font-preview">
+                <p id="font-preview-text">
+                  This is how the selected font will look. The quick brown fox
+                  jumps over the lazy dog.
+                </p>
+              </div>
+              <p class="feature-description">
+                Switch to fonts specifically designed for dyslexia like
+                OpenDyslexic or Lexend. These fonts avoid overly stylized or
+                italic characters for better readability.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('dyslexia-fonts')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 2: Custom Spacing Controls -->
+          <div class="feature-section">
+            <h2>2. Custom Spacing Controls</h2>
+            <div class="feature-icon">📏</div>
+            <div class="feature-content">
+              <div class="spacing-controls">
+                <label>
+                  Font Size:
+                  <input
+                    type="range"
+                    id="font-size"
+                    min="14"
+                    max="32"
+                    value="16"
+                    onchange="changeFontSize()"
+                  />
+                  <span id="font-size-value">16px</span>
+                </label>
+                <label>
+                  Line Spacing:
+                  <input
+                    type="range"
+                    id="line-spacing"
+                    min="1.2"
+                    max="3.0"
+                    step="0.1"
+                    value="1.5"
+                    onchange="changeLineSpacing()"
+                  />
+                  <span id="line-spacing-value">1.5</span>
+                </label>
+                <label>
+                  Letter Spacing:
+                  <input
+                    type="range"
+                    id="letter-spacing"
+                    min="0"
+                    max="0.3"
+                    step="0.01"
+                    value="0"
+                    onchange="changeLetterSpacing()"
+                  />
+                  <span id="letter-spacing-value">0px</span>
+                </label>
+                <label>
+                  Word Spacing:
+                  <input
+                    type="range"
+                    id="word-spacing"
+                    min="0"
+                    max="0.5"
+                    step="0.01"
+                    value="0"
+                    onchange="changeWordSpacing()"
+                  />
+                  <span id="word-spacing-value">0px</span>
+                </label>
+              </div>
+              <p class="feature-description">
+                Adjust line spacing, letter spacing, and font size to create
+                generous white space. This helps reduce visual crowding and
+                improves reading comfort.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('custom-spacing')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 3: Text-to-Speech -->
+          <div class="feature-section">
+            <h2>3. Text-to-Speech Option</h2>
+            <div class="feature-icon">🔊</div>
+            <div class="feature-content">
+              <div class="tts-controls">
+                <button id="read-aloud-btn" onclick="toggleTextToSpeech()">
+                  <span id="tts-icon">🔊</span>
+                  <span id="tts-text">Start Reading</span>
+                </button>
+                <div class="tts-options">
+                  <label>
+                    Reading Speed:
+                    <select id="reading-speed" onchange="changeReadingSpeed()">
+                      <option value="0.5">Slow</option>
+                      <option value="1" selected>Normal</option>
+                      <option value="1.5">Fast</option>
+                      <option value="2">Very Fast</option>
+                    </select>
+                  </label>
+                  <label>
+                    Voice:
+                    <select id="voice-select" onchange="changeVoice()">
+                      <!-- Will be populated by JavaScript -->
+                    </select>
+                  </label>
+                </div>
+                <div class="tts-upload">
+                  <label for="tts-file"
+                    >Upload .txt or .pdf file to read aloud:</label
+                  >
+                  <input
+                    type="file"
+                    id="tts-file"
+                    accept=".txt,.pdf,application/pdf,text/plain"
+                    onchange="handleFileUpload(event)"
+                  />
+                </div>
+              </div>
+              <p class="feature-description">
+                Provide audio narration or a read-aloud toggle for any text.
+                Choose from different voices and reading speeds for optimal
+                comprehension. You can also upload a .txt file to be read aloud.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('text-to-speech')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Content -->
+        <div class="demo-content" id="demo-content">
+          <h3>Sample Reading Text</h3>
+          <p id="demo-text">
+            The quick brown fox jumps over the lazy dog. This sentence contains
+            all the letters of the alphabet and is commonly used to test fonts
+            and readability. Reading can be challenging for individuals with
+            dyslexia, but with the right tools and accommodations, everyone can
+            enjoy the written word.
+          </p>
+          <p id="demo-text-2">
+            Dyslexia-friendly features like proper font selection, adequate
+            spacing, and text-to-speech options can make a significant
+            difference in reading comfort and comprehension. These tools help
+            reduce visual stress and improve focus during reading sessions.
+          </p>
+        </div>
+
+        <!-- Code Modal -->
+        <div id="codeModal" class="code-modal">
+          <div class="code-modal-content">
+            <div class="code-modal-header">
+              <h3 id="modalTitle">Feature Code</h3>
+              <span class="close-modal" onclick="closeCodeModal()"
+                >&times;</span
+              >
+            </div>
+            <div class="code-modal-body">
+              <div class="code-tabs">
+                <button class="tab-btn active" onclick="switchTab('html')">
+                  HTML
+                </button>
+                <button class="tab-btn" onclick="switchTab('css')">CSS</button>
+                <button class="tab-btn" onclick="switchTab('js')">
+                  JavaScript
+                </button>
+              </div>
+              <div class="code-content">
+                <pre><code id="codeDisplay"></code></pre>
+              </div>
+              <button class="copy-btn" onclick="copyCode()">
+                📋 Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+              We are dedicated to providing the best services to our customers,
+              ensuring quality and satisfaction.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="features.html">Accessibility</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="guidelines.html">Guidelines</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@company.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Street, City, Country</p>
+          </div>
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AdaptX | Designed with
+            <span aria-label="love">❤️</span> | <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let speechSynthesis = window.speechSynthesis;
+      let currentUtterance = null;
+      let isReading = false;
+
+      // Dyslexia-Friendly Fonts
+      function changeDyslexiaFont() {
+        const fontSelect = document.getElementById("font-family-select");
+        const selectedFont = fontSelect.value;
+        const previewText = document.getElementById("font-preview-text");
+        const demoText = document.getElementById("demo-text");
+        const demoText2 = document.getElementById("demo-text-2");
+
+        // Apply font to preview and demo content
+        previewText.style.fontFamily = selectedFont + ", sans-serif";
+        demoText.style.fontFamily = selectedFont + ", sans-serif";
+        demoText2.style.fontFamily = selectedFont + ", sans-serif";
+
+        // Store preference
+        localStorage.setItem("dyslexia-font", selectedFont);
+      }
+
+      // Custom Spacing Controls
+      function changeFontSize() {
+        const size = document.getElementById("font-size").value;
+        const demoText = document.getElementById("demo-text");
+        const demoText2 = document.getElementById("demo-text-2");
+
+        demoText.style.fontSize = size + "px";
+        demoText2.style.fontSize = size + "px";
+        document.getElementById("font-size-value").textContent = size + "px";
+
+        localStorage.setItem("dyslexia-font-size", size);
+      }
+
+      function changeLineSpacing() {
+        const spacing = document.getElementById("line-spacing").value;
+        const demoText = document.getElementById("demo-text");
+        const demoText2 = document.getElementById("demo-text-2");
+
+        demoText.style.lineHeight = spacing;
+        demoText2.style.lineHeight = spacing;
+        document.getElementById("line-spacing-value").textContent = spacing;
+
+        localStorage.setItem("dyslexia-line-spacing", spacing);
+      }
+
+      function changeLetterSpacing() {
+        const spacing = document.getElementById("letter-spacing").value;
+        const demoText = document.getElementById("demo-text");
+        const demoText2 = document.getElementById("demo-text-2");
+
+        demoText.style.letterSpacing = spacing + "px";
+        demoText2.style.letterSpacing = spacing + "px";
+        document.getElementById("letter-spacing-value").textContent =
+          spacing + "px";
+
+        localStorage.setItem("dyslexia-letter-spacing", spacing);
+      }
+
+      function changeWordSpacing() {
+        const spacing = document.getElementById("word-spacing").value;
+        const demoText = document.getElementById("demo-text");
+        const demoText2 = document.getElementById("demo-text-2");
+
+        demoText.style.wordSpacing = spacing + "px";
+        demoText2.style.wordSpacing = spacing + "px";
+        document.getElementById("word-spacing-value").textContent =
+          spacing + "px";
+
+        localStorage.setItem("dyslexia-word-spacing", spacing);
+      }
+
+      // Text-to-Speech
+      function populateVoices() {
+        const voiceSelect = document.getElementById("voice-select");
+        const voices = speechSynthesis.getVoices();
+
+        voiceSelect.innerHTML = "";
+        voices.forEach((voice, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          voiceSelect.appendChild(option);
+        });
+      }
+
+      function toggleTextToSpeech() {
+        if (isReading) {
+          stopReading();
+        } else {
+          startReading();
+        }
+      }
+
+      function startReading() {
+        const demoText = document.getElementById("demo-text").textContent;
+        const demoText2 = document.getElementById("demo-text-2").textContent;
+        const fullText = demoText + " " + demoText2;
+
+        const utterance = new SpeechSynthesisUtterance(fullText);
+        const voiceSelect = document.getElementById("voice-select");
+        const speedSelect = document.getElementById("reading-speed");
+
+        if (voiceSelect.value) {
+          const voices = speechSynthesis.getVoices();
+          utterance.voice = voices[voiceSelect.value];
+        }
+
+        utterance.rate = parseFloat(speedSelect.value);
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        utterance.onend = function () {
+          stopReading();
+        };
+
+        utterance.onerror = function () {
+          stopReading();
+        };
+
+        currentUtterance = utterance;
+        speechSynthesis.speak(utterance);
+        isReading = true;
+
+        updateTTSButton();
+      }
+
+      function stopReading() {
+        if (currentUtterance) {
+          speechSynthesis.cancel();
+          currentUtterance = null;
+        }
+        isReading = false;
+        updateTTSButton();
+      }
+
+      function updateTTSButton() {
+        const button = document.getElementById("read-aloud-btn");
+        const icon = document.getElementById("tts-icon");
+        const text = document.getElementById("tts-text");
+
+        if (isReading) {
+          icon.textContent = "⏸️";
+          text.textContent = "Stop Reading";
+          button.classList.add("reading");
+        } else {
+          icon.textContent = "🔊";
+          text.textContent = "Start Reading";
+          button.classList.remove("reading");
+        }
+      }
+
+      function changeReadingSpeed() {
+        if (currentUtterance) {
+          const speed = document.getElementById("reading-speed").value;
+          currentUtterance.rate = parseFloat(speed);
+        }
+      }
+
+      function changeVoice() {
+        if (currentUtterance) {
+          const voiceSelect = document.getElementById("voice-select");
+          const voices = speechSynthesis.getVoices();
+          currentUtterance.voice = voices[voiceSelect.value];
+        }
+      }
+
+      // File Upload for TTS
+      function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        if (file.type === "text/plain" || file.name.endsWith(".txt")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const uploadedText = e.target.result;
+            document.getElementById("demo-text").textContent = uploadedText;
+            document.getElementById("demo-text-2").textContent = "";
+          };
+          reader.readAsText(file);
+        } else if (
+          file.type === "application/pdf" ||
+          file.name.endsWith(".pdf")
+        ) {
+          // PDF support placeholder
+          alert(
+            "PDF reading is not supported in this demo. For full PDF support, integrate PDF.js or a similar library."
+          );
+        } else {
+          alert("Please upload a .txt or .pdf file only.");
+        }
+      }
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load saved preferences
+        const savedFont = localStorage.getItem("dyslexia-font");
+        const savedFontSize = localStorage.getItem("dyslexia-font-size");
+        const savedLineSpacing = localStorage.getItem("dyslexia-line-spacing");
+        const savedLetterSpacing = localStorage.getItem(
+          "dyslexia-letter-spacing"
+        );
+        const savedWordSpacing = localStorage.getItem("dyslexia-word-spacing");
+
+        if (savedFont) {
+          document.getElementById("font-family-select").value = savedFont;
+          changeDyslexiaFont();
+        }
+
+        if (savedFontSize) {
+          document.getElementById("font-size").value = savedFontSize;
+          changeFontSize();
+        }
+
+        if (savedLineSpacing) {
+          document.getElementById("line-spacing").value = savedLineSpacing;
+          changeLineSpacing();
+        }
+
+        if (savedLetterSpacing) {
+          document.getElementById("letter-spacing").value = savedLetterSpacing;
+          changeLetterSpacing();
+        }
+
+        if (savedWordSpacing) {
+          document.getElementById("word-spacing").value = savedWordSpacing;
+          changeWordSpacing();
+        }
+
+        // Initialize text-to-speech
+        populateVoices();
+        speechSynthesis.onvoiceschanged = populateVoices;
+      });
+
+      // Code Modal Functions
+      let currentFeature = "";
+      let currentTab = "html";
+
+      function showFeatureCode(feature) {
+        currentFeature = feature;
+        currentTab = "html";
+        updateModalContent();
+        document.getElementById("codeModal").style.display = "block";
+      }
+
+      function closeCodeModal() {
+        document.getElementById("codeModal").style.display = "none";
+      }
+
+      function switchTab(tab) {
+        currentTab = tab;
+        updateModalContent();
+
+        // Update active tab button
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      function updateModalContent() {
+        const modalTitle = document.getElementById("modalTitle");
+        const codeDisplay = document.getElementById("codeDisplay");
+
+        let title = "";
+        let code = "";
+
+        switch (currentFeature) {
+          case "dyslexia-fonts":
+            title = "Dyslexia-Friendly Fonts Code";
+            code = getDyslexiaFontsCode();
+            break;
+          case "custom-spacing":
+            title = "Custom Spacing Controls Code";
+            code = getCustomSpacingCode();
+            break;
+          case "text-to-speech":
+            title = "Text-to-Speech Code";
+            code = getTextToSpeechCode();
+            break;
+        }
+
+        modalTitle.textContent = title;
+        codeDisplay.textContent = code;
+      }
+
+      function getDyslexiaFontsCode() {
+        const codes = {
+          html: `<!-- Dyslexia-Friendly Fonts HTML -->
+<div class="font-selector">
+  <label for="font-family-select">Choose Font:</label>
+  <select id="font-family-select" onchange="changeDyslexiaFont()">
+    <option value="Arial">Arial (Standard)</option>
+    <option value="OpenDyslexic">OpenDyslexic</option>
+    <option value="Lexend">Lexend</option>
+    <option value="Comic Sans MS">Comic Sans MS</option>
+    <option value="Verdana">Verdana</option>
+    <option value="Inter">Inter</option>
+  </select>
+</div>
+<div class="font-preview">
+  <p id="font-preview-text">
+    This is how the selected font will look. The quick brown fox jumps over the lazy dog.
+  </p>
+</div>`,
+          css: `/* Dyslexia-Friendly Fonts CSS */
+.font-selector {
+  margin-bottom: 20px;
+}
+
+.font-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.font-selector select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.font-selector select option {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 8px;
+}
+
+.font-preview {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.font-preview p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0ff;
+}
+
+/* Dyslexia-friendly font recommendations */
+.dyslexia-friendly {
+  font-family: 'OpenDyslexic', 'Lexend', 'Comic Sans MS', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}`,
+          js: `// Dyslexia-Friendly Fonts JavaScript
+function changeDyslexiaFont() {
+  const fontSelect = document.getElementById("font-family-select");
+  const selectedFont = fontSelect.value;
+  const previewText = document.getElementById("font-preview-text");
+  const demoText = document.getElementById("demo-text");
+  const demoText2 = document.getElementById("demo-text-2");
+
+  // Apply font to preview and demo content
+  previewText.style.fontFamily = selectedFont + ", sans-serif";
+  demoText.style.fontFamily = selectedFont + ", sans-serif";
+  demoText2.style.fontFamily = selectedFont + ", sans-serif";
+
+  // Store preference
+  localStorage.setItem("dyslexia-font", selectedFont);
+}
+
+// Initialize font on page load
+document.addEventListener("DOMContentLoaded", function () {
+  const savedFont = localStorage.getItem("dyslexia-font");
+  if (savedFont) {
+    document.getElementById("font-family-select").value = savedFont;
+    changeDyslexiaFont();
+  }
+});`,
+        };
+        return codes[currentTab];
+      }
+
+      function getCustomSpacingCode() {
+        const codes = {
+          html: `<!-- Custom Spacing Controls HTML -->
+<div class="spacing-controls">
+  <label>
+    Font Size:
+    <input type="range" id="font-size" min="14" max="32" value="16" onchange="changeFontSize()" />
+    <span id="font-size-value">16px</span>
+  </label>
+  <label>
+    Line Spacing:
+    <input type="range" id="line-spacing" min="1.2" max="3.0" step="0.1" value="1.5" onchange="changeLineSpacing()" />
+    <span id="line-spacing-value">1.5</span>
+  </label>
+  <label>
+    Letter Spacing:
+    <input type="range" id="letter-spacing" min="0" max="0.3" step="0.01" value="0" onchange="changeLetterSpacing()" />
+    <span id="letter-spacing-value">0px</span>
+  </label>
+  <label>
+    Word Spacing:
+    <input type="range" id="word-spacing" min="0" max="0.5" step="0.01" value="0" onchange="changeWordSpacing()" />
+    <span id="word-spacing-value">0px</span>
+  </label>
+</div>`,
+          css: `/* Custom Spacing Controls CSS */
+.spacing-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.spacing-controls label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spacing-controls input[type="range"] {
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.spacing-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+}
+
+.spacing-controls input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+  border: none;
+}
+
+.spacing-controls span {
+  min-width: 50px;
+  text-align: right;
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* Dyslexia-friendly spacing recommendations */
+.dyslexia-spacing {
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  margin-bottom: 1.5em;
+}`,
+          js: `// Custom Spacing Controls JavaScript
+function changeFontSize() {
+  const size = document.getElementById("font-size").value;
+  const demoText = document.getElementById("demo-text");
+  const demoText2 = document.getElementById("demo-text-2");
+
+  demoText.style.fontSize = size + "px";
+  demoText2.style.fontSize = size + "px";
+  document.getElementById("font-size-value").textContent = size + "px";
+
+  localStorage.setItem("dyslexia-font-size", size);
+}
+
+function changeLineSpacing() {
+  const spacing = document.getElementById("line-spacing").value;
+  const demoText = document.getElementById("demo-text");
+  const demoText2 = document.getElementById("demo-text-2");
+
+  demoText.style.lineHeight = spacing;
+  demoText2.style.lineHeight = spacing;
+  document.getElementById("line-spacing-value").textContent = spacing;
+
+  localStorage.setItem("dyslexia-line-spacing", spacing);
+}
+
+function changeLetterSpacing() {
+  const spacing = document.getElementById("letter-spacing").value;
+  const demoText = document.getElementById("demo-text");
+  const demoText2 = document.getElementById("demo-text-2");
+
+  demoText.style.letterSpacing = spacing + "px";
+  demoText2.style.letterSpacing = spacing + "px";
+  document.getElementById("letter-spacing-value").textContent = spacing + "px";
+
+  localStorage.setItem("dyslexia-letter-spacing", spacing);
+}
+
+function changeWordSpacing() {
+  const spacing = document.getElementById("word-spacing").value;
+  const demoText = document.getElementById("demo-text");
+  const demoText2 = document.getElementById("demo-text-2");
+
+  demoText.style.wordSpacing = spacing + "px";
+  demoText2.style.wordSpacing = spacing + "px";
+  document.getElementById("word-spacing-value").textContent = spacing + "px";
+
+  localStorage.setItem("dyslexia-word-spacing", spacing);
+}
+
+// Initialize spacing on page load
+document.addEventListener("DOMContentLoaded", function () {
+  const savedFontSize = localStorage.getItem("dyslexia-font-size");
+  const savedLineSpacing = localStorage.getItem("dyslexia-line-spacing");
+  const savedLetterSpacing = localStorage.getItem("dyslexia-letter-spacing");
+  const savedWordSpacing = localStorage.getItem("dyslexia-word-spacing");
+
+  if (savedFontSize) {
+    document.getElementById("font-size").value = savedFontSize;
+    changeFontSize();
+  }
+  if (savedLineSpacing) {
+    document.getElementById("line-spacing").value = savedLineSpacing;
+    changeLineSpacing();
+  }
+  if (savedLetterSpacing) {
+    document.getElementById("letter-spacing").value = savedLetterSpacing;
+    changeLetterSpacing();
+  }
+  if (savedWordSpacing) {
+    document.getElementById("word-spacing").value = savedWordSpacing;
+    changeWordSpacing();
+  }
+});`,
+        };
+        return codes[currentTab];
+      }
+
+      function getTextToSpeechCode() {
+        const codes = {
+          html: `<!-- Text-to-Speech HTML -->
+<div class="tts-controls">
+  <button id="read-aloud-btn" onclick="toggleTextToSpeech()">
+    <span id="tts-icon">🔊</span>
+    <span id="tts-text">Start Reading</span>
+  </button>
+  <div class="tts-options">
+    <label>
+      Reading Speed:
+      <select id="reading-speed" onchange="changeReadingSpeed()">
+        <option value="0.5">Slow</option>
+        <option value="1" selected>Normal</option>
+        <option value="1.5">Fast</option>
+        <option value="2">Very Fast</option>
+      </select>
+    </label>
+    <label>
+      Voice:
+      <select id="voice-select" onchange="changeVoice()">
+        <!-- Will be populated by JavaScript -->
+      </select>
+    </label>
+  </div>
+  <div class="tts-upload">
+    <label for="tts-file">Upload .txt file to read aloud:</label>
+    <input type="file" id="tts-file" accept=".txt,text/plain" onchange="handleFileUpload(event)" />
+  </div>
+</div>`,
+          css: `/* Text-to-Speech CSS */
+.tts-controls {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#read-aloud-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+#read-aloud-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#read-aloud-btn.reading {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.tts-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tts-options label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.tts-options select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.tts-upload {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tts-upload label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tts-upload input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}`,
+          js: `// Text-to-Speech JavaScript
+let speechSynthesis = window.speechSynthesis;
+let currentUtterance = null;
+let isReading = false;
+
+function populateVoices() {
+  const voiceSelect = document.getElementById("voice-select");
+  const voices = speechSynthesis.getVoices();
+
+  voiceSelect.innerHTML = "";
+  voices.forEach((voice, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = \`\${voice.name} (\${voice.lang})\`;
+    voiceSelect.appendChild(option);
+  });
+}
+
+function toggleTextToSpeech() {
+  if (isReading) {
+    stopReading();
+  } else {
+    startReading();
+  }
+}
+
+function startReading() {
+  const demoText = document.getElementById("demo-text").textContent;
+  const demoText2 = document.getElementById("demo-text-2").textContent;
+  const fullText = demoText + " " + demoText2;
+
+  const utterance = new SpeechSynthesisUtterance(fullText);
+  const voiceSelect = document.getElementById("voice-select");
+  const speedSelect = document.getElementById("reading-speed");
+
+  if (voiceSelect.value) {
+    const voices = speechSynthesis.getVoices();
+    utterance.voice = voices[voiceSelect.value];
+  }
+
+  utterance.rate = parseFloat(speedSelect.value);
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  utterance.onend = function () {
+    stopReading();
+  };
+
+  utterance.onerror = function () {
+    stopReading();
+  };
+
+  currentUtterance = utterance;
+  speechSynthesis.speak(utterance);
+  isReading = true;
+
+  updateTTSButton();
+}
+
+function stopReading() {
+  if (currentUtterance) {
+    speechSynthesis.cancel();
+    currentUtterance = null;
+  }
+  isReading = false;
+  updateTTSButton();
+}
+
+function updateTTSButton() {
+  const button = document.getElementById("read-aloud-btn");
+  const icon = document.getElementById("tts-icon");
+  const text = document.getElementById("tts-text");
+
+  if (isReading) {
+    icon.textContent = "⏸️";
+    text.textContent = "Stop Reading";
+    button.classList.add("reading");
+  } else {
+    icon.textContent = "🔊";
+    text.textContent = "Start Reading";
+    button.classList.remove("reading");
+  }
+}
+
+function changeReadingSpeed() {
+  if (currentUtterance) {
+    const speed = document.getElementById("reading-speed").value;
+    currentUtterance.rate = parseFloat(speed);
+  }
+}
+
+function changeVoice() {
+  if (currentUtterance) {
+    const voiceSelect = document.getElementById("voice-select");
+    const voices = speechSynthesis.getVoices();
+    currentUtterance.voice = voices[voiceSelect.value];
+  }
+}
+
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  if (file.type === "text/plain" || file.name.endsWith(".txt")) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const uploadedText = e.target.result;
+      document.getElementById("demo-text").textContent = uploadedText;
+      document.getElementById("demo-text-2").textContent = "";
+    };
+    reader.readAsText(file);
+  } else {
+    alert("Please upload a .txt file only.");
+  }
+}
+
+// Initialize text-to-speech
+document.addEventListener("DOMContentLoaded", function () {
+  populateVoices();
+  speechSynthesis.onvoiceschanged = populateVoices;
+});`,
+        };
+        return codes[currentTab];
+      }
+
+      function copyCode() {
+        const codeText = document.getElementById("codeDisplay").textContent;
+        navigator.clipboard
+          .writeText(codeText)
+          .then(() => {
+            const copyBtn = document.querySelector(".copy-btn");
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = "✅ Copied!";
+            setTimeout(() => {
+              copyBtn.textContent = originalText;
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code. Please select and copy manually.");
+          });
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("codeModal");
+        if (event.target === modal) {
+          closeCodeModal();
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Blindness Features - AdaptX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../../styles/home.css" />
+    <link
+      rel="stylesheet"
+      href="../../styles/features/colorblind-feature.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="web-name">AdaptX</div>
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="navbar-menu">
+          <a href="../home.html">Home</a>
+          <a href="../about.html">About Us</a>
+          <a href="../features.html">Accessibility Features</a>
+          <a href="../guidelines.html">Guidelines</a>
+          <a href="../contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="colorblind-container">
+        <h1>Color Blindness Features</h1>
+        <p class="subtitle">
+          Tools to ensure content is accessible to users with color vision
+          deficiencies
+        </p>
+
+        <div class="features-grid">
+          <!-- Feature 1: High Contrast Mode -->
+          <div class="feature-section">
+            <h2>1. High Contrast Mode</h2>
+            <div class="feature-icon">🎨</div>
+            <div class="feature-content">
+              <div class="contrast-controls">
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="high-contrast"
+                      onchange="toggleHighContrast()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>High Contrast Mode</span>
+                </div>
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="inverted-colors"
+                      onchange="toggleInvertedColors()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>Inverted Colors</span>
+                </div>
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="enhanced-contrast"
+                      onchange="toggleEnhancedContrast()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>Enhanced Contrast</span>
+                </div>
+              </div>
+              <div class="contrast-demo">
+                <div class="demo-text">
+                  <p>Sample text to demonstrate contrast changes</p>
+                  <button class="demo-button">Sample Button</button>
+                </div>
+              </div>
+              <p class="feature-description">
+                Toggle high contrast modes to enhance text/background contrast
+                and improve readability for users with color vision
+                deficiencies.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('high-contrast')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 2: Color-Blind Safe Palette -->
+          <div class="feature-section">
+            <h2>2. Color-Blind Safe Palette</h2>
+            <div class="feature-icon">🌈</div>
+            <div class="feature-content">
+              <div class="palette-selector">
+                <label for="color-palette">Choose Color Palette:</label>
+                <select id="color-palette" onchange="changeColorPalette()">
+                  <option value="default">Default</option>
+                  <option value="colorblind-friendly">
+                    Colorblind Friendly
+                  </option>
+                  <option value="high-contrast">High Contrast</option>
+                  <option value="monochrome">Monochrome</option>
+                </select>
+              </div>
+              <div class="color-demo">
+                <div class="color-squares">
+                  <div class="color-square" data-color="primary">Primary</div>
+                  <div class="color-square" data-color="secondary">
+                    Secondary
+                  </div>
+                  <div class="color-square" data-color="success">Success</div>
+                  <div class="color-square" data-color="warning">Warning</div>
+                  <div class="color-square" data-color="error">Error</div>
+                </div>
+                <div class="color-info">
+                  <p>These colors are optimized for colorblind users</p>
+                </div>
+              </div>
+              <p class="feature-description">
+                Use color palettes like Color Universal Design (CUD) or
+                ColorBrewer Safe Schemes. Avoid problematic color pairs:
+                red/green, green/brown, blue/purple.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('color-palette')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 3: Non-Color Dependent Indicators -->
+          <div class="feature-section">
+            <h2>3. Non-Color Dependent Indicators</h2>
+            <div class="feature-icon">📊</div>
+            <div class="feature-content">
+              <div class="indicator-controls">
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="show-icons"
+                      onchange="toggleIcons()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>Show Icons</span>
+                </div>
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="show-labels"
+                      onchange="toggleLabels()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>Show Labels</span>
+                </div>
+                <div class="control-group">
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="show-shapes"
+                      onchange="toggleShapes()"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span>Show Shapes</span>
+                </div>
+              </div>
+              <div class="indicator-demo">
+                <div class="status-indicators">
+                  <div class="status-item" data-status="success">
+                    <span class="status-icon">✅</span>
+                    <span class="status-label">Success</span>
+                  </div>
+                  <div class="status-item" data-status="warning">
+                    <span class="status-icon">⚠️</span>
+                    <span class="status-label">Warning</span>
+                  </div>
+                  <div class="status-item" data-status="error">
+                    <span class="status-icon">❌</span>
+                    <span class="status-label">Error</span>
+                  </div>
+                  <div class="status-item" data-status="info">
+                    <span class="status-icon">ℹ️</span>
+                    <span class="status-label">Info</span>
+                  </div>
+                </div>
+                <div class="chart-demo">
+                  <div
+                    class="chart-bar"
+                    data-value="75"
+                    data-label="Category A"
+                  >
+                    <div class="bar-fill" style="width: 75%"></div>
+                    <span class="bar-label">Category A</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    data-value="45"
+                    data-label="Category B"
+                  >
+                    <div class="bar-fill" style="width: 45%"></div>
+                    <span class="bar-label">Category B</span>
+                  </div>
+                  <div
+                    class="chart-bar"
+                    data-value="90"
+                    data-label="Category C"
+                  >
+                    <div class="bar-fill" style="width: 90%"></div>
+                    <span class="bar-label">Category C</span>
+                  </div>
+                </div>
+              </div>
+              <p class="feature-description">
+                Avoid relying on color alone to convey meaning. Use icons,
+                labels, shapes, and patterns to ensure information is accessible
+                to all users regardless of color vision.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('non-color-indicators')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Modal -->
+        <div id="codeModal" class="code-modal">
+          <div class="code-modal-content">
+            <div class="code-modal-header">
+              <h3 id="modalTitle">Feature Code</h3>
+              <span class="close-modal" onclick="closeCodeModal()"
+                >&times;</span
+              >
+            </div>
+            <div class="code-modal-body">
+              <div class="code-tabs">
+                <button class="tab-btn active" onclick="switchTab('html')">
+                  HTML
+                </button>
+                <button class="tab-btn" onclick="switchTab('css')">CSS</button>
+                <button class="tab-btn" onclick="switchTab('js')">
+                  JavaScript
+                </button>
+              </div>
+              <div class="code-content">
+                <pre><code id="codeDisplay"></code></pre>
+              </div>
+              <button class="copy-btn" onclick="copyCode()">
+                📋 Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+              We are dedicated to providing the best services to our customers,
+              ensuring quality and satisfaction.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="features.html">Accessibility</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="guidelines.html">Guidelines</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@company.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Street, City, Country</p>
+          </div>
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AdaptX | Designed with
+            <span aria-label="love">❤️</span> | <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // High Contrast Mode
+      function toggleHighContrast() {
+        const enabled = document.getElementById("high-contrast").checked;
+        if (enabled) {
+          document.body.classList.add("high-contrast");
+        } else {
+          document.body.classList.remove("high-contrast");
+        }
+      }
+
+      function toggleInvertedColors() {
+        const enabled = document.getElementById("inverted-colors").checked;
+        if (enabled) {
+          document.body.classList.add("inverted-colors");
+        } else {
+          document.body.classList.remove("inverted-colors");
+        }
+      }
+
+      function toggleEnhancedContrast() {
+        const enabled = document.getElementById("enhanced-contrast").checked;
+        if (enabled) {
+          document.body.classList.add("enhanced-contrast");
+        } else {
+          document.body.classList.remove("enhanced-contrast");
+        }
+      }
+
+      // Color-Blind Safe Palette
+      function changeColorPalette() {
+        const palette = document.getElementById("color-palette").value;
+        document.body.className = document.body.className.replace(
+          /palette-\w+/g,
+          ""
+        );
+        document.body.classList.add(`palette-${palette}`);
+      }
+
+      // Non-Color Dependent Indicators
+      function toggleIcons() {
+        const enabled = document.getElementById("show-icons").checked;
+        if (enabled) {
+          document.body.classList.add("show-icons");
+        } else {
+          document.body.classList.remove("show-icons");
+        }
+      }
+
+      function toggleLabels() {
+        const enabled = document.getElementById("show-labels").checked;
+        if (enabled) {
+          document.body.classList.add("show-labels");
+        } else {
+          document.body.classList.remove("show-labels");
+        }
+      }
+
+      function toggleShapes() {
+        const enabled = document.getElementById("show-shapes").checked;
+        if (enabled) {
+          document.body.classList.add("show-shapes");
+        } else {
+          document.body.classList.remove("show-shapes");
+        }
+      }
+
+      // Code Modal Functions
+      let currentFeature = "";
+      let currentTab = "html";
+
+      function showFeatureCode(feature) {
+        currentFeature = feature;
+        currentTab = "html";
+        updateModalContent();
+        document.getElementById("codeModal").style.display = "block";
+      }
+
+      function closeCodeModal() {
+        document.getElementById("codeModal").style.display = "none";
+      }
+
+      function switchTab(tab) {
+        currentTab = tab;
+        updateModalContent();
+
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      function updateModalContent() {
+        const modalTitle = document.getElementById("modalTitle");
+        const codeDisplay = document.getElementById("codeDisplay");
+
+        let title = "";
+        let code = "";
+
+        switch (currentFeature) {
+          case "high-contrast":
+            title = "High Contrast Mode Code";
+            code = getHighContrastCode();
+            break;
+          case "color-palette":
+            title = "Color-Blind Safe Palette Code";
+            code = getColorPaletteCode();
+            break;
+          case "non-color-indicators":
+            title = "Non-Color Dependent Indicators Code";
+            code = getNonColorIndicatorsCode();
+            break;
+        }
+
+        modalTitle.textContent = title;
+        codeDisplay.textContent = code;
+      }
+
+      function getHighContrastCode() {
+        const codes = {
+          html: `<!-- High Contrast Mode HTML -->
+<div class="contrast-controls">
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="high-contrast" onchange="toggleHighContrast()" />
+      <span class="slider"></span>
+    </label>
+    <span>High Contrast Mode</span>
+  </div>
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="inverted-colors" onchange="toggleInvertedColors()" />
+      <span class="slider"></span>
+    </label>
+    <span>Inverted Colors</span>
+  </div>
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="enhanced-contrast" onchange="toggleEnhancedContrast()" />
+      <span class="slider"></span>
+    </label>
+    <span>Enhanced Contrast</span>
+  </div>
+</div>`,
+          css: `/* High Contrast Mode CSS */
+.contrast-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/* High contrast mode styles */
+.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast * {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.high-contrast button {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+.inverted-colors {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+.enhanced-contrast {
+  filter: contrast(150%);
+}`,
+          js: `// High Contrast Mode JavaScript
+function toggleHighContrast() {
+  const enabled = document.getElementById("high-contrast").checked;
+  if (enabled) {
+    document.body.classList.add("high-contrast");
+  } else {
+    document.body.classList.remove("high-contrast");
+  }
+}
+
+function toggleInvertedColors() {
+  const enabled = document.getElementById("inverted-colors").checked;
+  if (enabled) {
+    document.body.classList.add("inverted-colors");
+  } else {
+    document.body.classList.remove("inverted-colors");
+  }
+}
+
+function toggleEnhancedContrast() {
+  const enabled = document.getElementById("enhanced-contrast").checked;
+  if (enabled) {
+    document.body.classList.add("enhanced-contrast");
+  } else {
+    document.body.classList.remove("enhanced-contrast");
+  }
+}`,
+        };
+        return codes[currentTab];
+      }
+
+      function getColorPaletteCode() {
+        const codes = {
+          html: `<!-- Color-Blind Safe Palette HTML -->
+<div class="palette-selector">
+  <label for="color-palette">Choose Color Palette:</label>
+  <select id="color-palette" onchange="changeColorPalette()">
+    <option value="default">Default</option>
+    <option value="colorblind-friendly">Colorblind Friendly</option>
+    <option value="high-contrast">High Contrast</option>
+    <option value="monochrome">Monochrome</option>
+  </select>
+</div>
+<div class="color-demo">
+  <div class="color-squares">
+    <div class="color-square" data-color="primary">Primary</div>
+    <div class="color-square" data-color="secondary">Secondary</div>
+    <div class="color-square" data-color="success">Success</div>
+    <div class="color-square" data-color="warning">Warning</div>
+    <div class="color-square" data-color="error">Error</div>
+  </div>
+</div>`,
+          css: `/* Color-Blind Safe Palette CSS */
+.palette-selector {
+  margin-bottom: 20px;
+}
+
+.palette-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.palette-selector select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.color-squares {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.color-square {
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Default palette */
+.palette-default .color-square[data-color="primary"] { background: #667eea; }
+.palette-default .color-square[data-color="secondary"] { background: #764ba2; }
+.palette-default .color-square[data-color="success"] { background: #4caf50; }
+.palette-default .color-square[data-color="warning"] { background: #ff9800; }
+.palette-default .color-square[data-color="error"] { background: #f44336; }
+
+/* Colorblind-friendly palette */
+.palette-colorblind-friendly .color-square[data-color="primary"] { background: #1f77b4; }
+.palette-colorblind-friendly .color-square[data-color="secondary"] { background: #ff7f0e; }
+.palette-colorblind-friendly .color-square[data-color="success"] { background: #2ca02c; }
+.palette-colorblind-friendly .color-square[data-color="warning"] { background: #d62728; }
+.palette-colorblind-friendly .color-square[data-color="error"] { background: #9467bd; }
+
+/* High contrast palette */
+.palette-high-contrast .color-square[data-color="primary"] { background: #000; }
+.palette-high-contrast .color-square[data-color="secondary"] { background: #333; }
+.palette-high-contrast .color-square[data-color="success"] { background: #006600; }
+.palette-high-contrast .color-square[data-color="warning"] { background: #cc0000; }
+.palette-high-contrast .color-square[data-color="error"] { background: #990000; }
+
+/* Monochrome palette */
+.palette-monochrome .color-square[data-color="primary"] { background: #000; }
+.palette-monochrome .color-square[data-color="secondary"] { background: #333; }
+.palette-monochrome .color-square[data-color="success"] { background: #666; }
+.palette-monochrome .color-square[data-color="warning"] { background: #999; }
+.palette-monochrome .color-square[data-color="error"] { background: #ccc; }`,
+          js: `// Color-Blind Safe Palette JavaScript
+function changeColorPalette() {
+  const palette = document.getElementById("color-palette").value;
+  document.body.className = document.body.className.replace(/palette-\\w+/g, '');
+  document.body.classList.add(\`palette-\${palette}\`);
+}
+
+// Colorblind-friendly color recommendations
+const colorblindSafeColors = {
+  primary: '#1f77b4',    // Blue
+  secondary: '#ff7f0e',  // Orange
+  success: '#2ca02c',    // Green
+  warning: '#d62728',    // Red
+  error: '#9467bd'       // Purple
+};
+
+// Avoid these problematic color pairs:
+// - Red/Green (protanopia, deuteranopia)
+// - Green/Brown (tritanopia)
+// - Blue/Purple (tritanopia)`,
+        };
+        return codes[currentTab];
+      }
+
+      function getNonColorIndicatorsCode() {
+        const codes = {
+          html: `<!-- Non-Color Dependent Indicators HTML -->
+<div class="indicator-controls">
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="show-icons" onchange="toggleIcons()" />
+      <span class="slider"></span>
+    </label>
+    <span>Show Icons</span>
+  </div>
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="show-labels" onchange="toggleLabels()" />
+      <span class="slider"></span>
+    </label>
+    <span>Show Labels</span>
+  </div>
+  <div class="control-group">
+    <label class="switch">
+      <input type="checkbox" id="show-shapes" onchange="toggleShapes()" />
+      <span class="slider"></span>
+    </label>
+    <span>Show Shapes</span>
+  </div>
+</div>
+<div class="status-indicators">
+  <div class="status-item" data-status="success">
+    <span class="status-icon">✅</span>
+    <span class="status-label">Success</span>
+  </div>
+  <div class="status-item" data-status="warning">
+    <span class="status-icon">⚠️</span>
+    <span class="status-label">Warning</span>
+  </div>
+  <div class="status-item" data-status="error">
+    <span class="status-icon">❌</span>
+    <span class="status-label">Error</span>
+  </div>
+  <div class="status-item" data-status="info">
+    <span class="status-icon">ℹ️</span>
+    <span class="status-label">Info</span>
+  </div>
+</div>`,
+          css: `/* Non-Color Dependent Indicators CSS */
+.status-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.status-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.status-label {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Hide icons when disabled */
+.show-icons .status-icon {
+  display: block;
+}
+
+.show-icons .status-item:not(.show-icons) .status-icon {
+  display: none;
+}
+
+/* Hide labels when disabled */
+.show-labels .status-label {
+  display: block;
+}
+
+.show-labels .status-item:not(.show-labels) .status-label {
+  display: none;
+}
+
+/* Shape indicators */
+.show-shapes .status-item[data-status="success"]::before {
+  content: "●";
+  font-size: 1.5rem;
+  color: #4caf50;
+}
+
+.show-shapes .status-item[data-status="warning"]::before {
+  content: "▲";
+  font-size: 1.5rem;
+  color: #ff9800;
+}
+
+.show-shapes .status-item[data-status="error"]::before {
+  content: "■";
+  font-size: 1.5rem;
+  color: #f44336;
+}
+
+.show-shapes .status-item[data-status="info"]::before {
+  content: "◆";
+  font-size: 1.5rem;
+  color: #2196f3;
+}`,
+          js: `// Non-Color Dependent Indicators JavaScript
+function toggleIcons() {
+  const enabled = document.getElementById("show-icons").checked;
+  if (enabled) {
+    document.body.classList.add("show-icons");
+  } else {
+    document.body.classList.remove("show-icons");
+  }
+}
+
+function toggleLabels() {
+  const enabled = document.getElementById("show-labels").checked;
+  if (enabled) {
+    document.body.classList.add("show-labels");
+  } else {
+    document.body.classList.remove("show-labels");
+  }
+}
+
+function toggleShapes() {
+  const enabled = document.getElementById("show-shapes").checked;
+  if (enabled) {
+    document.body.classList.add("show-shapes");
+  } else {
+    document.body.classList.remove("show-shapes");
+  }
+}
+
+// Accessibility guidelines for non-color indicators
+const accessibilityGuidelines = {
+  // Always provide text alternatives
+  textAlternatives: true,
+  
+  // Use multiple indicators (icon + label + shape)
+  multipleIndicators: true,
+  
+  // Ensure sufficient contrast
+  highContrast: true,
+  
+  // Avoid relying solely on color
+  avoidColorOnly: true
+};`,
+        };
+        return codes[currentTab];
+      }
+
+      function copyCode() {
+        const codeText = document.getElementById("codeDisplay").textContent;
+        navigator.clipboard
+          .writeText(codeText)
+          .then(() => {
+            const copyBtn = document.querySelector(".copy-btn");
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = "✅ Copied!";
+            setTimeout(() => {
+              copyBtn.textContent = originalText;
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code. Please select and copy manually.");
+          });
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("codeModal");
+        if (event.target === modal) {
+          closeCodeModal();
+        }
+      };
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set default palette
+        changeColorPalette();
+      });
+    </script>
+  </body>
+</html>

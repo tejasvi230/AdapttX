@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features - AdaptX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <link rel="stylesheet" href="../styles/features.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="web-name">AdaptX</div>
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="navbar-menu">
+          <a href="home.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="features.html">Accessibility Features</a>
+          <a href="guidelines.html">Guidelines</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="features">
+        <h1>FEATURES</h1>
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Hinted search text"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="feature-tags">
+          <button class="tag">AUTISM</button>
+          <button class="tag">DYSLEXIA</button>
+          <button class="tag">COLOR BLINDNESS</button>
+          <button class="tag">MOBILITY</button>
+        </div>
+
+        <div class="feature-grid">
+          <a href="features/dyslexia-feature.html" class="feature-link">
+            <div class="feature-card dyslexia-card">
+              <h2>Dyslexia-Friendly Mode</h2>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  margin: 20px 0;
+                "
+              >
+                <label class="switch">
+                  <input type="checkbox" id="dyslexia-toggle" />
+                  <span class="slider"></span>
+                </label>
+                <span id="toggle-text">Enable Dyslexia Mode</span>
+              </div>
+              <p id="description">
+                Enables OpenDyslexic font and enhanced readability features for
+                better reading experience.
+              </p>
+            </div>
+          </a>
+          <a href="features/autism-feature.html" class="feature-link">
+            <div class="feature-card autism-card">
+              <h2>Autism-Friendly Features</h2>
+              <div style="font-size: 2rem; margin-bottom: 10px">🧩</div>
+              <ul>
+                <li>Simplified UI mode to reduce distractions</li>
+                <li>Option to hide animations and flashing content</li>
+                <li>Adjustable color contrast and font size</li>
+                <li>Focus/highlight for navigation elements</li>
+              </ul>
+            </div>
+          </a>
+          <a href="features/colorblind-feature.html" class="feature-link">
+            <div class="feature-card colorblind-card">
+              <h2>Color Blindness Features</h2>
+              <div style="font-size: 2rem; margin-bottom: 10px">🎨</div>
+              <ul>
+                <li>
+                  Color filter options (protanopia, deuteranopia, tritanopia)
+                </li>
+                <li>High-contrast mode toggle</li>
+                <li>Underline or pattern overlays for color-coded elements</li>
+                <li>Preview of color changes</li>
+              </ul>
+            </div>
+          </a>
+          <a href="features/adhd-feature.html" class="feature-link">
+            <div class="feature-card adhd-card">
+              <h2>ADHD-Friendly Features</h2>
+              <div style="font-size: 2rem; margin-bottom: 10px">⚡</div>
+              <ul>
+                <li>Distraction-free reading mode</li>
+                <li>Focus timer and break reminders</li>
+                <li>Highlight important content</li>
+                <li>Reduce visual clutter options</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+              We are dedicated to providing the best services to our customers,
+              ensuring quality and satisfaction.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="features.html">Accessibility</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="guidelines.html">Guidelines</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@company.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Street, City, Country</p>
+          </div>
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AdaptX | Designed with
+            <span aria-label="love">❤️</span> | <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Get elements
+      const toggle = document.getElementById("dyslexia-toggle");
+      const card = document.querySelector(".dyslexia-card");
+      const toggleText = document.getElementById("toggle-text");
+      const description = document.getElementById("description");
+
+      // Check if dyslexia mode is stored in local storage
+      const isDyslexiaMode = localStorage.getItem("dyslexia-mode") === "true";
+
+      // Apply stored preference
+      if (isDyslexiaMode) {
+        toggle.checked = true;
+        card.classList.add("enabled");
+        document.body.classList.add("dyslexia-mode");
+        toggleText.classList.add("dyslexia-mode");
+        description.classList.add("dyslexia-mode");
+        toggleText.textContent = "Disable Dyslexia Mode";
+      }
+
+      // Toggle dyslexia mode
+      toggle.addEventListener("change", function () {
+        const enabled = this.checked;
+
+        // Toggle classes
+        card.classList.toggle("enabled", enabled);
+        document.body.classList.toggle("dyslexia-mode", enabled);
+        toggleText.classList.toggle("dyslexia-mode", enabled);
+        description.classList.toggle("dyslexia-mode", enabled);
+
+        // Update text
+        toggleText.textContent = enabled
+          ? "Disable Dyslexia Mode"
+          : "Enable Dyslexia Mode";
+
+        // Save preference
+        localStorage.setItem("dyslexia-mode", enabled);
+      });
+    </script>
+  </body>
+</html>

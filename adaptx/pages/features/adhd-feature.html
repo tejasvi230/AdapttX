@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADHD-Friendly Features - AdaptX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../../styles/home.css" />
+    <link rel="stylesheet" href="../../styles/features/adhd-feature.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="web-name">AdaptX</div>
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="navbar-menu">
+          <a href="home.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="features.html">Accessibility Features</a>
+          <a href="guidelines.html">Guidelines</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="adhd-container">
+        <h1>ADHD-Friendly Features</h1>
+        <p class="subtitle">Tools to help you focus and stay productive</p>
+
+        <div class="features-grid">
+          <!-- Feature 1: Distraction-Free Mode -->
+          <div class="feature-section">
+            <h2>1. Distraction-Free Mode</h2>
+            <div class="feature-icon">🧘</div>
+            <div class="feature-content">
+              <div class="toggle-container">
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="distraction-toggle"
+                    onchange="toggleDistractionMode()"
+                  />
+                  <span class="slider"></span>
+                </label>
+                <span>Toggle UI clutter off</span>
+              </div>
+              <div class="toggle-container">
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="reader-toggle"
+                    onchange="toggleReaderMode()"
+                  />
+                  <span class="slider"></span>
+                </label>
+                <span>Reader mode</span>
+              </div>
+              <p class="feature-description">
+                Hide sidebars, ads, popups, and animated elements. Present
+                content in a simplified, clean layout with high readability.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('distraction-free')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 2: Focus Timer / Pomodoro -->
+          <div class="feature-section">
+            <h2>2. Focus Timer / Pomodoro Integration</h2>
+            <div class="feature-icon">⏰</div>
+            <div class="feature-content">
+              <div class="timer-container">
+                <button id="start-timer" onclick="startPomodoro()">
+                  Start 25min Focus
+                </button>
+                <button id="start-break" onclick="startBreak()">
+                  Start 5min Break
+                </button>
+                <div id="timer-display">25:00</div>
+                <div class="timer-status" id="timer-status">Ready to start</div>
+              </div>
+              <p class="feature-description">
+                Built-in focus timer with Pomodoro technique (25 min work + 5
+                min break). Set personal task goals and reminders.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('focus-timer')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature 3: Customizable Layout -->
+          <div class="feature-section">
+            <h2>3. Customizable Layout and Fonts</h2>
+            <div class="feature-icon">🎨</div>
+            <div class="feature-content">
+              <div class="customization-container">
+                <label>
+                  Font Size:
+                  <input
+                    type="range"
+                    id="font-size"
+                    min="12"
+                    max="24"
+                    value="16"
+                    onchange="changeFontSize()"
+                  />
+                  <span id="font-size-value">16px</span>
+                </label>
+                <label>
+                  Line Spacing:
+                  <input
+                    type="range"
+                    id="line-spacing"
+                    min="1.2"
+                    max="2.5"
+                    step="0.1"
+                    value="1.5"
+                    onchange="changeLineSpacing()"
+                  />
+                  <span id="line-spacing-value">1.5</span>
+                </label>
+                <label>
+                  Font Family:
+                  <select id="font-family" onchange="changeFontFamily()">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Inter">Inter</option>
+                    <option value="Open Sans">Open Sans</option>
+                  </select>
+                </label>
+              </div>
+              <p class="feature-description">
+                Adjust font size, style (especially sans-serif), and line
+                spacing to improve readability and reduce eye strain.
+              </p>
+              <button
+                class="get-code-btn"
+                onclick="showFeatureCode('customizable-layout')"
+              >
+                📋 Get Code
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Content -->
+        <div class="demo-content" id="demo-content">
+          <h3>Demo Content</h3>
+          <p>
+            This is sample text to demonstrate how the ADHD-friendly features
+            work. You can adjust the font size, line spacing, and font family
+            using the controls above. The distraction-free mode will hide
+            unnecessary elements, and the reader mode will provide a clean,
+            focused reading experience.
+          </p>
+          <p>
+            The focus timer helps you maintain concentration during work
+            sessions, while the customizable layout ensures optimal readability
+            for your specific needs.
+          </p>
+        </div>
+
+        <!-- Code Modal -->
+        <div id="codeModal" class="code-modal">
+          <div class="code-modal-content">
+            <div class="code-modal-header">
+              <h3 id="modalTitle">Feature Code</h3>
+              <span class="close-modal" onclick="closeCodeModal()"
+                >&times;</span
+              >
+            </div>
+            <div class="code-modal-body">
+              <div class="code-tabs">
+                <button class="tab-btn active" onclick="switchTab('html')">
+                  HTML
+                </button>
+                <button class="tab-btn" onclick="switchTab('css')">CSS</button>
+                <button class="tab-btn" onclick="switchTab('js')">
+                  JavaScript
+                </button>
+              </div>
+              <div class="code-content">
+                <pre><code id="codeDisplay"></code></pre>
+              </div>
+              <button class="copy-btn" onclick="copyCode()">
+                📋 Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+              We are dedicated to providing the best services to our customers,
+              ensuring quality and satisfaction.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="features.html">Accessibility</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="guidelines.html">Guidelines</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@company.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Street, City, Country</p>
+          </div>
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AdaptX | Designed with
+            <span aria-label="love">❤️</span> | <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Distraction-Free Mode
+      function toggleDistractionMode() {
+        const enabled = document.getElementById("distraction-toggle").checked;
+        if (enabled) {
+          document.body.classList.add("distraction-free");
+        } else {
+          document.body.classList.remove("distraction-free");
+        }
+      }
+
+      function toggleReaderMode() {
+        const enabled = document.getElementById("reader-toggle").checked;
+        if (enabled) {
+          document.body.classList.add("reader-mode");
+        } else {
+          document.body.classList.remove("reader-mode");
+        }
+      }
+
+      // Focus Timer
+      let timerInterval;
+      let timeLeft = 1500; // 25 minutes in seconds
+
+      function startPomodoro() {
+        timeLeft = 1500; // 25 minutes
+        startTimer("Focus Session");
+      }
+
+      function startBreak() {
+        timeLeft = 300; // 5 minutes
+        startTimer("Break Time");
+      }
+
+      function startTimer(sessionType) {
+        clearInterval(timerInterval);
+        document.getElementById("timer-status").textContent =
+          sessionType + " in progress...";
+
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          const minutes = Math.floor(timeLeft / 60);
+          const seconds = timeLeft % 60;
+          document.getElementById("timer-display").textContent = `${minutes
+            .toString()
+            .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById("timer-status").textContent =
+              "Session complete!";
+            alert("Time's up! " + sessionType + " completed.");
+          }
+        }, 1000);
+      }
+
+      // Customizable Layout
+      function changeFontSize() {
+        const size = document.getElementById("font-size").value;
+        document.body.style.fontSize = size + "px";
+        document.getElementById("font-size-value").textContent = size + "px";
+      }
+
+      function changeLineSpacing() {
+        const spacing = document.getElementById("line-spacing").value;
+        document.body.style.lineHeight = spacing;
+        document.getElementById("line-spacing-value").textContent = spacing;
+      }
+
+      function changeFontFamily() {
+        const font = document.getElementById("font-family").value;
+        document.body.style.fontFamily = font + ", sans-serif";
+      }
+
+      // Initialize values
+      document.addEventListener("DOMContentLoaded", function () {
+        changeFontSize();
+        changeLineSpacing();
+        changeFontFamily();
+      });
+
+      // Code Modal Functions
+      let currentFeature = "";
+      let currentTab = "html";
+
+      function showFeatureCode(feature) {
+        currentFeature = feature;
+        currentTab = "html";
+        updateModalContent();
+        document.getElementById("codeModal").style.display = "block";
+      }
+
+      function closeCodeModal() {
+        document.getElementById("codeModal").style.display = "none";
+      }
+
+      function switchTab(tab) {
+        currentTab = tab;
+        updateModalContent();
+
+        // Update active tab button
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      function updateModalContent() {
+        const modalTitle = document.getElementById("modalTitle");
+        const codeDisplay = document.getElementById("codeDisplay");
+
+        let title = "";
+        let code = "";
+
+        switch (currentFeature) {
+          case "distraction-free":
+            title = "Distraction-Free Mode Code";
+            code = getDistractionFreeCode();
+            break;
+          case "focus-timer":
+            title = "Focus Timer / Pomodoro Code";
+            code = getFocusTimerCode();
+            break;
+          case "customizable-layout":
+            title = "Customizable Layout Code";
+            code = getCustomizableLayoutCode();
+            break;
+        }
+
+        modalTitle.textContent = title;
+        codeDisplay.textContent = code;
+      }
+
+      function getDistractionFreeCode() {
+        const codes = {
+          html: `<!-- Distraction-Free Mode HTML -->
+<div class="toggle-container">
+  <label class="switch">
+    <input type="checkbox" id="distraction-toggle" onchange="toggleDistractionMode()" />
+    <span class="slider"></span>
+  </label>
+  <span>Toggle UI clutter off</span>
+</div>
+<div class="toggle-container">
+  <label class="switch">
+    <input type="checkbox" id="reader-toggle" onchange="toggleReaderMode()" />
+    <span class="slider"></span>
+  </label>
+  <span>Reader mode</span>
+</div>`,
+          css: `/* Distraction-Free Mode CSS */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.distraction-free .features-grid {
+  display: none;
+}
+
+.distraction-free .demo-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reader-mode {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.reader-mode .adhd-container h1,
+.reader-mode .feature-section h2 {
+  color: #333;
+}
+
+.reader-mode .feature-section {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.reader-mode .feature-content,
+.reader-mode .feature-description {
+  color: #333;
+}
+
+.reader-mode .toggle-container,
+.reader-mode .customization-container label {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+.reader-mode .toggle-container span {
+  color: #333;
+}`,
+          js: `// Distraction-Free Mode JavaScript
+function toggleDistractionMode() {
+  const enabled = document.getElementById("distraction-toggle").checked;
+  if (enabled) {
+    document.body.classList.add("distraction-free");
+  } else {
+    document.body.classList.remove("distraction-free");
+  }
+}
+
+function toggleReaderMode() {
+  const enabled = document.getElementById("reader-toggle").checked;
+  if (enabled) {
+    document.body.classList.add("reader-mode");
+  } else {
+    document.body.classList.remove("reader-mode");
+  }
+}`,
+        };
+        return codes[currentTab];
+      }
+
+      function getFocusTimerCode() {
+        const codes = {
+          html: `<!-- Focus Timer HTML -->
+<div class="timer-container">
+  <button id="start-timer" onclick="startPomodoro()">
+    Start 25min Focus
+  </button>
+  <button id="start-break" onclick="startBreak()">
+    Start 5min Break
+  </button>
+  <div id="timer-display">25:00</div>
+  <div class="timer-status" id="timer-status">Ready to start</div>
+</div>`,
+          css: `/* Focus Timer CSS */
+.timer-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.timer-container button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timer-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.timer-container button:active {
+  transform: translateY(0);
+}
+
+#timer-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 20px 0;
+  font-family: "Courier New", monospace;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.timer-status {
+  font-size: 1rem;
+  color: #e0e0ff;
+  margin-top: 10px;
+}`,
+          js: `// Focus Timer JavaScript
+let timerInterval;
+let timeLeft = 1500; // 25 minutes in seconds
+
+function startPomodoro() {
+  timeLeft = 1500; // 25 minutes
+  startTimer("Focus Session");
+}
+
+function startBreak() {
+  timeLeft = 300; // 5 minutes
+  startTimer("Break Time");
+}
+
+function startTimer(sessionType) {
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent = sessionType + " in progress...";
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById("timer-display").textContent = \`\${minutes.toString().padStart(2, "0")}:\${seconds.toString().padStart(2, "0")}\`;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      document.getElementById("timer-status").textContent = "Session complete!";
+      alert("Time's up! " + sessionType + " completed.");
+    }
+  }, 1000);
+}`,
+        };
+        return codes[currentTab];
+      }
+
+      function getCustomizableLayoutCode() {
+        const codes = {
+          html: `<!-- Customizable Layout HTML -->
+<div class="customization-container">
+  <label>
+    Font Size:
+    <input type="range" id="font-size" min="12" max="24" value="16" onchange="changeFontSize()" />
+    <span id="font-size-value">16px</span>
+  </label>
+  <label>
+    Line Spacing:
+    <input type="range" id="line-spacing" min="1.2" max="2.5" step="0.1" value="1.5" onchange="changeLineSpacing()" />
+    <span id="line-spacing-value">1.5</span>
+  </label>
+  <label>
+    Font Family:
+    <select id="font-family" onchange="changeFontFamily()">
+      <option value="Arial">Arial</option>
+      <option value="Helvetica">Helvetica</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Inter">Inter</option>
+      <option value="Open Sans">Open Sans</option>
+    </select>
+  </label>
+</div>`,
+          css: `/* Customizable Layout CSS */
+.customization-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.customization-container label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.customization-container input[type="range"] {
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.customization-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+}
+
+.customization-container input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+  border: none;
+}
+
+.customization-container select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.customization-container select option {
+  padding: 8px;
+}`,
+          js: `// Customizable Layout JavaScript
+function changeFontSize() {
+  const size = document.getElementById("font-size").value;
+  document.body.style.fontSize = size + "px";
+  document.getElementById("font-size-value").textContent = size + "px";
+}
+
+function changeLineSpacing() {
+  const spacing = document.getElementById("line-spacing").value;
+  document.body.style.lineHeight = spacing;
+  document.getElementById("line-spacing-value").textContent = spacing;
+}
+
+function changeFontFamily() {
+  const font = document.getElementById("font-family").value;
+  document.body.style.fontFamily = font + ", sans-serif";
+}
+
+// Initialize values
+document.addEventListener("DOMContentLoaded", function () {
+  changeFontSize();
+  changeLineSpacing();
+  changeFontFamily();
+});`,
+        };
+        return codes[currentTab];
+      }
+
+      function copyCode() {
+        const codeText = document.getElementById("codeDisplay").textContent;
+        navigator.clipboard
+          .writeText(codeText)
+          .then(() => {
+            const copyBtn = document.querySelector(".copy-btn");
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = "✅ Copied!";
+            setTimeout(() => {
+              copyBtn.textContent = originalText;
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code. Please select and copy manually.");
+          });
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("codeModal");
+        if (event.target === modal) {
+          closeCodeModal();
+        }
+      };
+    </script>
+  </body>
+</html>

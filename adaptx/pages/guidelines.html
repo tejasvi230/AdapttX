@@ -1,0 +1,342 @@
+for sy<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guidelines - AdaptX</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <style>
+      /* Keep only page-specific styles, remove navbar/footer styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .title {
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        margin: 40px 0 60px;
+        font-family: serif;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 0 20px;
+      }
+      .card {
+        background: white;
+        border-radius: 24px;
+        padding: 30px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .icon img {
+        width: 30px;
+        height: 30px;
+      }
+      .blue {
+        background-color: #4285f4;
+      }
+      .green {
+        background-color: #34a853;
+      }
+      .yellow {
+        background-color: #fbbc05;
+      }
+      .red {
+        background-color: #ea4335;
+      }
+      .content h2 {
+        color: #000;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      .content p {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .summary-section {
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        margin: 40px 20px;
+      }
+      .summary-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      .summary-icon {
+        width: 60px;
+        height: 60px;
+        background-color: #0a1433;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .summary-title {
+        font-size: 20px;
+        color: #000;
+        font-weight: bold;
+      }
+      .summary-content h3 {
+        color: #000;
+        font-size: 18px;
+        margin: 20px 0 10px;
+      }
+      .summary-content ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: #333;
+      }
+      .summary-content li {
+        margin: 8px 0;
+        line-height: 1.5;
+      }
+      .summary-content a {
+        color: #0066cc;
+        text-decoration: underline;
+      }
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="web-name">AdaptX</div>
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="navbar-menu">
+          <a href="home.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="features.html">Accessibility Features</a>
+          <a href="guidelines.html">Guidelines</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1 class="title">GUIDELINES</h1>
+
+      <div class="grid">
+        <!-- Original cards here -->
+        <div class="card">
+          <div class="icon blue">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+              />
+            </svg>
+          </div>
+          <div class="content">
+            <h2>PRINCIPLE 1: PERCEIVABLE</h2>
+            <p>
+              Content should be easy to see and hear, with text alternatives for
+              non-text content
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon green">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
+              />
+            </svg>
+          </div>
+          <div class="content">
+            <h2>PRINCIPLE 2: UNDERSTANDABLE</h2>
+            <p>Content should be easy to understand</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon yellow">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+              <path
+                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+              />
+            </svg>
+          </div>
+          <div class="content">
+            <h2>PRINCIPLE 3: OPERABLE</h2>
+            <p>Interface and navigation must be operable</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon red">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+              <path
+                d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"
+              />
+            </svg>
+          </div>
+          <div class="content">
+            <h2>PRINCIPLE 4: ROBUST</h2>
+            <p>
+              Content must be robust enough to work with current and future
+              technologies
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Summary Section -->
+      <div class="summary-section">
+        <div class="summary-header">
+          <div class="summary-icon">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+              />
+            </svg>
+          </div>
+          <h2 class="summary-title">
+            SUMMARY OF WEB CONTENT ACCESSIBILITY GUIDELINES
+          </h2>
+        </div>
+
+        <div class="summary-content">
+          <h3>Perceivable</h3>
+          <ul>
+            <li>
+              Provide <a href="#">text alternatives</a> for non-text content.
+            </li>
+            <li>
+              Provide <a href="#">captions and other alternatives</a> for
+              multimedia.
+            </li>
+            <li>
+              Create content that can be presented in
+              <a href="#">different ways</a>, including by assistive
+              technologies, without losing meaning.
+            </li>
+            <li>
+              Make it easier for users to <a href="#">see and hear content</a>.
+            </li>
+          </ul>
+
+          <h3>Operable</h3>
+          <ul>
+            <li>Make all functionality available from a keyboard.</li>
+            <li>
+              Give users <a href="#">enough time</a> to read and use content.
+            </li>
+            <li>
+              Do not use content that causes <a href="#">seizures</a> or
+              physical reactions.
+            </li>
+            <li>Help users navigate and find content.</li>
+            <li>
+              Make it easier to use <a href="#">inputs other than keyboard</a>.
+            </li>
+          </ul>
+
+          <h3>Understandable</h3>
+          <ul>
+            <li>Make text <a href="#">readable and understandable</a>.</li>
+            <li>Make content appear and operate in predictable ways.</li>
+            <li>Help user avoid and correct mistake.</li>
+          </ul>
+          <h3>Robust</h3>
+          <li>
+            Maximise <a href="#">Compatibility</a> with current future user tool
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+              We are dedicated to providing the best services to our customers,
+              ensuring quality and satisfaction.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="features.html">Accessibility</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="guidelines.html">Guidelines</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@company.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Street, City, Country</p>
+          </div>
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AdaptX | Designed with
+            <span aria-label="love">❤️</span> | <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
