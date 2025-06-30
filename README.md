@@ -61,14 +61,6 @@ adaptx/
 - Extend feature pages or add new accessibility features by duplicating and modifying existing files.
 - Update styles in the corresponding CSS files.
 
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## Contact
 
-For questions or support, email: support@company.com
+For questions or support, email: tejasvi206btcse23@igdtuw.ac.in
