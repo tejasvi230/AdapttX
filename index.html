@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="te/styles/index.css" />
 
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel" src="te/components/DyslexiaFeature.jsx"></script>
-
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="te/components/DyslexiaFeature.jsx"></script>
   </head>
 
   <style>
@@ -47,6 +46,27 @@
         </div>
       </nav>
     </header>
+    <script>
+      // Mobile menu toggle
+      const navbarToggle = document.querySelector(".navbar-toggle");
+      const navbarMenu = document.getElementById("navbar-menu");
+      navbarToggle.addEventListener("click", function () {
+        navbarMenu.classList.toggle("active");
+        this.setAttribute(
+          "aria-expanded",
+          navbarMenu.classList.contains("active")
+        );
+      });
+      // Active link highlighting
+      const links = navbarMenu.querySelectorAll("a");
+      const current = window.location.pathname.split("/").pop();
+      links.forEach((link) => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    </script>
 
     <main>
       <div id="main-intro">
@@ -57,7 +77,14 @@
         <div class="main-intro-text">
           One stop platform for all the developers
         </div>
-        <div><button class="primary-button">Know More</button></div>
+        <div>
+          <button
+            class="primary-button"
+            onclick="document.getElementById('main-intro-mission').scrollIntoView({ behavior: 'smooth' });"
+          >
+            Know More
+          </button>
+        </div>
       </div>
 
       <div id="main-intro-image-container"></div>
@@ -72,7 +99,14 @@
           accessibility, ensuring that everyone can navigate, read, and interact
           with content effortlessly.
         </div>
-        <div><button class="secondary-button">Explore More</button></div>
+        <div>
+          <button
+            class="secondary-button"
+            onclick="window.location.href='te/pages/about.html';"
+          >
+            Explore More
+          </button>
+        </div>
       </div>
 
       <div id="main-features">
@@ -82,9 +116,9 @@
           <div class="home-feature-card">
             <img
               src="https://cdn.portfolio.hu/articles/images-xl/l/a/t/latas-vaksag-szem-455130.jpg"
-              alt="Partial Blindness"
+              alt="Color Blindness"
             />
-            <div class="feature-label">Partial Blindness</div>
+            <div class="feature-label">Color Blindness</div>
           </div>
           <div class="home-feature-card">
             <img
@@ -100,23 +134,6 @@
             />
             <div class="feature-label">ADHD</div>
           </div>
-          <div class="home-feature-card">
-            <img
-              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fperryeyecare.com%2Fwp-content%2Fuploads%2F2023%2F05%2Fcolor-blindness-hero-image-min.jpg&f=1&nofb=1&ipt=f66a874dd747f07c1a7030e90014b1ceeb378de783abf559ada2c107ea926d73&ipo=images"
-              alt="Colour Blindness"
-            />
-            <div class="feature-label">Colour Blindness</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="home-feedback">
-        <div class="web-name-main">Feedback</div>
-
-        <div id="feedback-container">
-          <div class="feedback"></div>
-          <div class="feedback"></div>
-          <div class="feedback"></div>
         </div>
       </div>
 

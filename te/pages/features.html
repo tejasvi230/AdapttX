@@ -34,6 +34,27 @@
         </div>
       </nav>
     </header>
+    <script>
+      // Mobile menu toggle
+      const navbarToggle = document.querySelector(".navbar-toggle");
+      const navbarMenu = document.getElementById("navbar-menu");
+      navbarToggle.addEventListener("click", function () {
+        navbarMenu.classList.toggle("active");
+        this.setAttribute(
+          "aria-expanded",
+          navbarMenu.classList.contains("active")
+        );
+      });
+      // Active link highlighting
+      const links = navbarMenu.querySelectorAll("a");
+      const current = window.location.pathname.split("/").pop();
+      links.forEach((link) => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    </script>
 
     <main>
       <section class="features">
@@ -100,8 +121,6 @@
               <ul>
                 <li>Simplified UI mode to reduce distractions</li>
                 <li>Option to hide animations and flashing content</li>
-                <li>Adjustable color contrast and font size</li>
-                <li>Focus/highlight for navigation elements</li>
               </ul>
             </div>
           </a>
@@ -115,7 +134,6 @@
                 </li>
                 <li>High-contrast mode toggle</li>
                 <li>Underline or pattern overlays for color-coded elements</li>
-                <li>Preview of color changes</li>
               </ul>
             </div>
           </a>

@@ -38,6 +38,27 @@
         </div>
       </nav>
     </header>
+    <script>
+      // Mobile menu toggle
+      const navbarToggle = document.querySelector(".navbar-toggle");
+      const navbarMenu = document.getElementById("navbar-menu");
+      navbarToggle.addEventListener("click", function () {
+        navbarMenu.classList.toggle("active");
+        this.setAttribute(
+          "aria-expanded",
+          navbarMenu.classList.contains("active")
+        );
+      });
+      // Active link highlighting
+      const links = navbarMenu.querySelectorAll("a");
+      const current = window.location.pathname.split("/").pop();
+      links.forEach((link) => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    </script>
 
     <main>
       <div class="dyslexia-container">

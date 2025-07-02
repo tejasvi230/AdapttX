@@ -1,30 +1,354 @@
+/* --- Global Styles & Variables (assuming these are in your index.css or a base CSS file) --- */
+/*
+:root {
+    --bg-dark: #1a1a2e;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --primary-blue: #007bff;
+    --neon-cyan: #00eaff;
+    --neon-purple: #ae00ff;
+    --accent-green: #00ff8c;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+// ... other global styles like header, footer, etc.
+*/
+
+/* --- Logo Specific Styles (Add/Update in your index.css or a dedicated component CSS) --- */
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem; /* Increased size for better visibility */
+  color: var(--text-light); /* Base color for the logo */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Subtle initial glow */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.logo:hover {
+  color: var(--neon-cyan); /* Change color on hover to a neon accent */
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan),
+    0 0 30px rgba(0, 234, 255, 0.7); /* Stronger, more vibrant glow on hover */
+  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+
+/* --- Contact Page Specific Styles (contact.css) --- */
+
+/* Main content area for the contact page */
+main {
+  padding: 3rem 2.5rem; /* Consistent padding with other main sections */
+  max-width: 1200px; /* Aligns with max-width of other page content */
+  margin: 3rem auto; /* Centers the content */
+  animation: fadeIn 1s ease-out forwards; /* Ensures a smooth entry animation */
+  display: flex; /* Flexbox for main content arrangement */
+  flex-direction: column; /* Stack elements vertically by default (mobile-first) */
+  align-items: center; /* Center items horizontally */
+  gap: 3rem; /* Spacing between the main title and the content wrapper */
+}
+
+/* Page title styling */
+.page-title {
+  font-family: "Space Grotesk", sans-serif; /* Consistent brand font */
+  text-align: center;
+  font-size: 3.8rem; /* Large and impactful title */
+  color: var(--text-light); /* Light text color */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px var(--neon-cyan); /* Neon glow effect */
+  margin-bottom: 2rem;
+  line-height: 1.1; /* Tighter line height for large titles */
+}
+
+/* Main wrapper for contact info and form */
+.contact-content-wrapper {
+  display: flex;
+  flex-direction: column; /* Stacks columns on smaller screens */
+  gap: 2.5rem; /* Space between the info section and the form section */
+  width: 100%;
+  max-width: 900px; /* Limits the combined width for readability on large screens */
+  background-color: rgba(255, 255, 255, 0.08); /* Subtle glassy background */
+  border-radius: 20px; /* Rounded corners for the container */
+  padding: 2.5rem; /* Inner padding */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  border: 1.5px solid rgba(255, 255, 255, 0.15); /* Light, subtle border */
+}
+
+/* Contact information section */
+.contact-info {
+  flex: 1; /* Allows it to grow and take available space */
+  color: var(--text-light); /* Light text color */
+  padding: 1rem; /* Inner padding */
+}
+
+.contact-info h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  color: var(--neon-cyan); /* Neon blue for headings */
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 234, 255, 0.5); /* Glowing effect */
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-muted); /* Muted text for descriptions */
+}
+
+.contact-info p strong {
+  color: var(--text-light); /* Highlight strong text */
+}
+
+.contact-info ul {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.contact-info ul li {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.contact-info ul li i {
+  /* Font Awesome icons styling */
+  color: var(--accent-green); /* Green accent for icons */
+  margin-right: 0.8rem;
+  font-size: 1.4rem;
+  width: 25px; /* Fixed width for consistent icon alignment */
+  text-align: center;
+}
+
+/* Social links section */
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem; /* Space between social icons */
+  flex-wrap: wrap; /* Allow icons to wrap if needed */
+}
+
+.social-links h2 {
+  flex-basis: 100%; /* Make heading take full width */
+  margin-bottom: 1rem; /* Space below heading */
+  font-size: 1.8rem; /* Slightly smaller than main contact info heading */
+  color: var(--text-light);
+  text-shadow: 0 0 8px rgba(0, 234, 255, 0.4);
+}
+
+.social-links a {
+  color: var(--neon-purple); /* Neon purple for social icons */
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
+}
+
+.social-links a:hover {
+  color: var(--accent-green); /* Green accent on hover */
+  transform: translateY(-3px) scale(1.1); /* Lift and grow effect */
+}
+
+/* Contact form container and styling */
+.contact-form-container {
+  flex: 1; /* Allows it to grow and take available space */
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: flex-start; /* Align form to the top of the container */
+  padding: 1rem; /* Padding inside the wrapper */
+}
+
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: white;
-  height: 60vh;
-  width: 70vw;
-  border-radius: 1%;
-  margin-top: 10vh;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Slightly darker glassy background for the form itself */
+  border-radius: 15px; /* Rounded corners for the form */
+  padding: 2.5rem;
+  width: 100%; /* Takes full width of its parent container */
+  max-width: 500px; /* Limits the form's max width for good readability */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Light, subtle border */
 }
 
-.contact-form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-input,
-textarea {
-  width: 50vw;
-  resize: none;
+form h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(0, 234, 255, 0.3); /* Subtle neon glow for form title */
 }
 
 label {
-  color: black;
+  color: var(--text-light);
   text-align: left;
-  width: 50vw;
+  margin-bottom: 0.5rem; /* Space between label and input */
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: calc(100% - 20px); /* 100% width minus horizontal padding */
+  padding: 12px 10px;
+  margin-bottom: 1.5rem; /* Space below each input field */
+  background-color: rgba(0, 0, 0, 0.4); /* Darker input background */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 8px; /* Rounded input corners */
+  color: var(--text-light); /* Light text color for input */
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease; /* Smooth transitions for focus */
+  resize: vertical; /* Allow vertical resize only for textarea */
+}
+
+/* Placeholder text styling */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  color: var(--text-muted); /* Muted color for placeholders */
+  opacity: 0.7;
+}
+
+/* Focus state for input fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none; /* Remove default outline */
+  border-color: var(--neon-cyan); /* Neon border on focus */
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.5); /* Neon focus glow */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Slightly darker background on focus */
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  background-color: var(
+    --primary-blue
+  ); /* Primary blue background for button */
+  color: var(--text-light); /* Light text color */
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease; /* Smooth transitions for hover */
+  align-self: center; /* Centers the button within the flex container */
+  margin-top: 1rem; /* Space above the button */
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.4); /* Subtle neon glow */
+}
+
+button[type="submit"]:hover {
+  background-color: var(--neon-cyan); /* Brighter neon on hover */
+  transform: translateY(-3px); /* Lifts the button slightly */
+  box-shadow: 0 0 25px var(--neon-cyan); /* More prominent glow on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (min-width: 768px) {
+  .contact-content-wrapper {
+    flex-direction: row; /* Arrange side-by-side on larger screens */
+    padding: 3rem;
+  }
+  .contact-info {
+    padding-right: 2rem; /* Add space between info and form */
+  }
+  form {
+    padding: 3rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: calc(100% - 24px); /* Adjust for new padding (2 * 12px) */
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    padding: 2rem 1rem; /* Reduce overall page padding */
+  }
+  .page-title {
+    font-size: 2.8rem; /* Smaller title on tablets/mobiles */
+  }
+  .contact-content-wrapper {
+    padding: 1.5rem; /* Smaller internal padding */
+    gap: 2rem; /* Reduce gap */
+  }
+  .contact-info h2 {
+    font-size: 1.8rem;
+    text-align: center; /* Center heading on smaller screens */
+  }
+  .contact-info p,
+  .contact-info ul li {
+    font-size: 1rem; /* Slightly smaller font size */
+  }
+  .contact-info .social-links {
+    justify-content: center; /* Center social links on mobile */
+  }
+  form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  label {
+    font-size: 1rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: calc(100% - 20px); /* Adjust for new padding (2 * 10px) */
+    padding: 10px;
+  }
+  button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2.2rem; /* Even smaller title on very small screens */
+  }
+  .contact-content-wrapper {
+    padding: 1rem; /* Further reduce padding */
+    border-radius: 15px;
+  }
+  form {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  form h2 {
+    font-size: 1.5rem;
+  }
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
+  .contact-info ul li {
+    font-size: 0.95rem; /* Slight adjustment for list items */
+  }
 }

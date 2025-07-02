@@ -1,4 +1,37 @@
-/* Base styles */
+/* === FONT IMPORTS === */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* === ROOT VARIABLES (Consistent with previous theme) === */
+:root {
+  --primary-blue: #121286;
+  --secondary-blue: #1e3c72;
+  /* Exciting Blue Background Colors */
+  --dark-background: #000033; /* Deeper start for the gradient */
+  --light-background: #0000ff; /* Bright, exciting blue end for the gradient */
+  --text-light: #fff;
+  --text-muted: #e0e0ff;
+  --button-hover-light: #f0f0ff;
+  --button-active-light: #e0e0ff;
+  --border-light: #fff;
+  --shadow-dark: rgba(18, 18, 134, 0.15);
+  --shadow-light: rgba(18, 18, 134, 0.18);
+  --neon-purple: #a259ff;
+  --neon-pink: #ff4ecd;
+  --neon-cyan: #00eaff;
+  --neon-amber: #ffc857;
+  --neon-gradient: linear-gradient(
+    45deg,
+    var(--neon-purple),
+    var(--neon-pink),
+    var(--neon-cyan)
+  );
+  --accent-green: #64ffda; /* Keeping the specific green from original CSS */
+  --tag-bg: #1a4db3; /* Original tag background */
+  --tag-hover-bg: #2c5fc9; /* Original tag hover background */
+}
+
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,151 +39,658 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0a1a3f 0%, #0a1a3f 100%);
-  color: white;
+  font-family: "Inter", Arial, sans-serif;
+  background-image: linear-gradient(
+    to bottom,
+    /* Changed direction for a smoother vertical flow */ var(--dark-background),
+    var(--primary-blue),
+    var(--light-background)
+  );
+  background-repeat: no-repeat;
   min-height: 100vh;
+  color: var(--text-light);
+  overflow-x: hidden; /* Applied here to prevent body scroll only */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
-/* Navigation */
+/* --- Navbar (Consistent with previous theme) --- */
 #navbar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 2vw;
-  color: white;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.283));
-  width: 100vw;
-}
-
-#navbar-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
-  width: 60vw;
+  justify-content: space-between;
+  padding: 1rem 3vw;
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue) 60%,
+    var(--secondary-blue) 100%
+  );
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 16px var(--shadow-dark);
+  border-bottom: 2px solid var(--secondary-blue);
+  backdrop-filter: blur(5px); /* Added subtle blur for a modern glass effect */
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem; /* Made logo/web-name bigger */
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: transform 0.2s ease-out, text-shadow 0.2s ease-out;
 }
 
-.nav-links {
+.logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+#navbar-menu {
+  /* Changed from .nav-links to #navbar-menu to match consistency */
   display: flex;
   gap: 2rem;
 }
 
-.nav-links a {
-  color: white;
+#navbar-menu a {
+  /* Targeting links within #navbar-menu */
+  color: var(--text-light);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-weight: 600; /* Bolder for prominence */
+  letter-spacing: 0.5px;
+  padding: 0.6rem 1.4rem; /* Slightly larger clickable area */
+  border-radius: 28px; /* More rounded */
+  transition: background 0.3s ease-out, color 0.3s ease-out,
+    box-shadow 0.3s ease-out, transform 0.15s ease-out;
+  position: relative;
+  outline: none; /* Handled by focus-visible */
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+#navbar-menu a:hover,
+#navbar-menu a:focus-visible {
+  /* Using focus-visible for better accessibility */
+  background: var(--text-light);
+  color: var(--primary-blue);
+  box-shadow: 0 0 10px 3px var(--secondary-blue), 0 4px 16px var(--shadow-light);
+  text-shadow: 0 0 6px var(--secondary-blue);
+  transform: translateY(-3px) scale(1.05);
 }
 
-/* Features Section */
+#navbar-menu a:active {
+  background: var(--button-active-light);
+  color: var(--primary-blue);
+  box-shadow: 0 0 0 3px var(--secondary-blue) inset;
+  transform: scale(0.96);
+}
+
+#navbar-menu a.active {
+  /* Specific active state */
+  background: var(--secondary-blue);
+  color: var(
+    --accent-green
+  ); /* Using the green from your original CSS for active */
+  box-shadow: 0 0 12px 4px rgba(30, 60, 114, 0.6);
+  font-weight: 700;
+  transform: scale(1.02);
+}
+
+/* Hamburger Toggle (Copied from previous theme) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease-out, box-shadow 0.25s ease-out;
+  border-radius: 50%;
+  padding: 8px;
+}
+.navbar-toggle:focus-visible,
+.navbar-toggle:hover {
+  background: var(--secondary-blue);
+  box-shadow: 0 0 10px rgba(30, 60, 114, 0.6);
+}
+.navbar-toggle .bar {
+  width: 32px;
+  height: 4px;
+  background: var(--text-light);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.navbar-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Features Section --- */
 .features {
-  padding: 2rem;
+  padding: 2.5rem; /* More padding */
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 3rem auto; /* More vertical space */
+  animation: fadeIn 1s ease-out forwards; /* Fade in animation */
 }
 
 .features h1 {
+  font-family: "Space Grotesk", sans-serif; /* Consistent font */
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  margin-bottom: 3rem; /* More space below */
+  font-size: 3.5rem; /* Larger and more impactful */
+  color: var(--text-light);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(0, 234, 255, 0.5); /* Subtle glow */
+  line-height: 1.1;
 }
 
 /* Search Container */
 .search-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* More space */
+  position: relative; /* For icon positioning */
+  max-width: 500px; /* Constrain search bar width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-input {
   width: 100%;
-  max-width: 400px;
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  padding: 1rem 3rem 1rem 1.5rem; /* Increased padding for icon */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  border-radius: 30px; /* More rounded */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Subtle transparent background */
+  color: var(--text-light);
+  font-size: 1.1rem;
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted); /* Muted placeholder text */
+  opacity: 0.8;
+}
+
+.search-input:focus {
+  border-color: var(--neon-cyan); /* Neon border on focus */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ); /* Slightly more opaque on focus */
+  box-shadow: 0 0 15px var(--neon-cyan); /* Glow on focus */
 }
 
 .search-button {
-  margin-left: -40px;
+  position: absolute;
+  right: 15px; /* Position button inside input field */
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
-  color: white;
+  color: var(--neon-cyan); /* Neon color for search icon */
   cursor: pointer;
-  padding: 0.8rem;
+  font-size: 1.4rem; /* Larger icon */
+  padding: 0.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  outline: none;
+}
+/* You might need an actual icon font (like Font Awesome) or an SVG for this */
+/* For example, if using Font Awesome: <i class="fas fa-search"></i> */
+/* For a simple Unicode magnifier: content: "\1F50D"; */
+.search-button::before {
+  /* Fallback for a simple search icon */
+  content: "🔍";
+  display: inline-block;
+  line-height: 1; /* Align text vertically */
+}
+
+.search-button:hover,
+.search-button:focus-visible {
+  color: var(--accent-green); /* Change color on hover/focus */
+  transform: translateY(-50%) scale(1.1); /* Slight scale */
 }
 
 /* Feature Tags */
 .feature-tags {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem; /* More space between tags */
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem; /* More space below */
   flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.6rem 1.8rem; /* More generous padding */
+  border-radius: 25px; /* More rounded */
+  background-color: var(--tag-bg); /* Use variable for consistency */
+  color: var(--text-light);
+  border: 1px solid var(--tag-bg); /* Consistent border */
+  cursor: pointer;
+  font-size: 1rem; /* Slightly larger font */
+  font-weight: 600; /* Bolder */
+  transition: background-color 0.25s ease, transform 0.15s ease,
+    box-shadow 0.25s ease;
+  outline: none;
+}
+
+.tag:hover,
+.tag:focus-visible {
+  background-color: var(--tag-hover-bg); /* Use variable */
+  transform: translateY(-3px) scale(1.02); /* Lift and slightly scale */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tag.active {
+  /* For an active/selected tag state */
+  background-color: var(--secondary-blue);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px var(--neon-cyan);
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* Feature Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Auto-fit with a min-width */
+  gap: 2.5rem; /* Increased gap */
+  padding: 0 1rem; /* Adjust padding for grid */
+}
+
+.feature-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Consistent translucent background */
+  border-radius: 15px; /* Consistent border-radius */
+  overflow: hidden; /* Ensure image doesn't overflow rounded corners */
+  height: 250px; /* Adjusted height for better visual */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* Initial shadow */
+  border: 1.5px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+    background-color 0.3s ease-out;
+  position: relative; /* For overlay content */
+}
+
+.feature-card:hover,
+.feature-card:focus-within {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(18, 18, 134, 0.25), 0 0 20px var(--neon-cyan);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ); /* Slight background change on hover */
 }
 
 .feature-card img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures image fills the box properly */
+  display: block; /* Remove extra space below image */
+  position: absolute; /* Position image behind content */
+  top: 0;
+  left: 0;
+  filter: brightness(0.7); /* Darken image slightly for text readability */
+  transition: filter 0.3s ease-out;
 }
 
-.tag {
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  background-color: #1a4db3;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
+.feature-card:hover img {
+  filter: brightness(0.9); /* Brighten image on hover */
 }
 
-.tag:hover {
-  background-color: #2c5fc9;
+.feature-card-content {
+  /* Added a wrapper for text content */
+  position: relative; /* Bring content to front */
+  z-index: 1; /* Ensure content is above image */
+  padding: 1.5rem;
+  color: var(--text-light); /* Ensure text is visible */
 }
 
-/* Feature Grid */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 1rem;
+.feature-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem; /* Larger heading */
+  margin-bottom: 0.8rem;
+  color: var(--text-light);
+  text-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
 }
 
-.feature-card {
-  background-color: white;
+.feature-card p {
+  /* Added a paragraph style for description */
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --- Animated Background & Shapes (Consistent with previous theme) --- */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(120deg, #00004d 0%, #000080 100%);
+  background-size: 200% 200%;
+  animation: bg-move 20s ease-in-out infinite alternate;
+}
+@keyframes bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(8px);
+  animation: float 10s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.floating-shape.purple {
+  background: var(--neon-purple);
+  left: 15vw;
+  top: 15vh;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+}
+.floating-shape.pink {
+  background: var(--neon-pink);
+  right: 18vw;
+  top: 35vh;
+  width: 100px;
+  height: 100px;
+  animation-delay: 2.5s;
+}
+.floating-shape.cyan {
+  background: var(--neon-cyan);
+  left: 25vw;
+  bottom: 8vh;
+  width: 130px;
+  height: 130px;
+  animation-delay: 5s;
+}
+.floating-shape.amber {
+  background: var(--neon-amber);
+  right: 25vw;
+  bottom: 20vh;
+  width: 70px;
+  height: 70px;
+  animation-delay: 7.5s;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-50px) scale(1.15);
+  }
+}
+
+.card-glow-animate {
+  /* Can be added to any card for a specific glow animation */
+  animation: cardGlow 4s ease-in-out infinite alternate;
+}
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 4px 20px var(--neon-purple);
+  }
+  50% {
+    box-shadow: 0 8px 28px var(--neon-cyan);
+  }
+  100% {
+    box-shadow: 0 4px 20px var(--neon-pink);
+  }
+}
+
+/* --- Scrollbar (Consistent with previous theme) --- */
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--dark-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-gradient);
   border-radius: 10px;
-  height: 200px;
+  border: 2px solid var(--dark-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    45deg,
+    var(--neon-pink),
+    var(--neon-cyan),
+    var(--neon-purple)
+  );
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+.dynamic-glow {
+  /* Can be added to any element for dynamic glow */
+  animation: colorShift 8s linear infinite alternate;
+}
+@keyframes colorShift {
+  0% {
+    box-shadow: 0 0 20px var(--neon-purple);
   }
-
-  .feature-grid {
-    grid-template-columns: 1fr;
+  25% {
+    box-shadow: 0 0 28px var(--neon-pink);
   }
+  50% {
+    box-shadow: 0 0 36px var(--neon-cyan);
+  }
+  75% {
+    box-shadow: 0 0 28px var(--neon-amber);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--neon-purple);
+  }
+}
 
-  .feature-tags {
+/* Initial fade-in animation for main content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive Design (Enhanced) --- */
+@media (max-width: 900px) {
+  /* Tablets and larger phones */
+  #navbar {
+    padding: 1rem 4vw;
+  }
+  .logo {
+    font-size: 1.6rem; /* Adjust logo for tablets */
+  }
+  #navbar-menu {
+    /* Renamed from .nav-links */
     flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(
+      90deg,
+      var(--primary-blue) 75%,
+      var(--secondary-blue) 100%
+    );
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    padding: 1.8rem 0 1.2rem 0;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: none; /* Hidden by default */
+    animation: slideDown 0.3s ease-out forwards;
+    transform-origin: top;
   }
-
+  #navbar-menu.active {
+    /* Show when active */
+    display: flex;
+  }
+  .navbar-toggle {
+    /* Display hamburger toggle */
+    display: flex;
+  }
+  .features h1 {
+    font-size: 3rem;
+  }
+  .search-container {
+    padding: 0 2vw;
+  }
+  .feature-tags {
+    gap: 1rem;
+  }
   .tag {
-    width: 100%;
-    max-width: 300px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .feature-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    ); /* Allow two columns if space, else one */
+    padding: 0 3vw;
+    gap: 2rem;
+  }
+  .feature-card {
+    height: 220px;
+  }
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Mobile phones */
+  #navbar {
+    padding: 0.8rem 5vw;
+  }
+  .logo {
+    font-size: 1.4rem; /* Further adjust logo for mobile */
+  }
+  #navbar-menu {
+    top: 65px; /* Adjust based on navbar height */
+    right: 5vw;
+    left: 5vw;
+    width: 90vw;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  .navbar-toggle {
+    width: 38px;
+    height: 38px;
+  }
+  .features {
+    padding: 1.5rem;
+  }
+  .features h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .search-input {
+    font-size: 1rem;
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
+  }
+  .search-button {
+    font-size: 1.2rem;
+    right: 10px;
+  }
+  .feature-tags {
+    flex-direction: column; /* Stack tags vertically */
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .tag {
+    width: 80%; /* Tags take more width */
+    max-width: 250px;
     text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    padding: 0 5vw;
+    gap: 1.5rem;
+  }
+  .feature-card {
+    height: 200px; /* Adjust height for mobile */
+  }
+  .feature-card-content {
+    padding: 1rem;
+  }
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+  .floating-shape.purple {
+    left: 5vw;
+    top: 10vh;
+    width: 100px;
+    height: 100px;
+  }
+  .floating-shape.pink {
+    right: 5vw;
+    top: 30vh;
+    width: 70px;
+    height: 70px;
+  }
+  .floating-shape.cyan {
+    left: 10vw;
+    bottom: 5vh;
+    width: 90px;
+    height: 90px;
+  }
+  .floating-shape.amber {
+    right: 10vw;
+    bottom: 10vh;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animations for Mobile Menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

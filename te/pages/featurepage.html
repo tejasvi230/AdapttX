@@ -12,7 +12,12 @@
     <header>
       <nav id="navbar">
         <div class="web-name">AdaptX</div>
-        <button class="navbar-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navbar-menu">
+        <button
+          class="navbar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -26,6 +31,24 @@
         </div>
       </nav>
     </header>
+    <script>
+      // Mobile menu toggle
+      const navbarToggle = document.querySelector('.navbar-toggle');
+      const navbarMenu = document.getElementById('navbar-menu');
+      navbarToggle.addEventListener('click', function() {
+        navbarMenu.classList.toggle('active');
+        this.setAttribute('aria-expanded', navbarMenu.classList.contains('active'));
+      });
+      // Active link highlighting
+      const links = navbarMenu.querySelectorAll('a');
+      const current = window.location.pathname.split('/').pop();
+      links.forEach(link => {
+        if(link.getAttribute('href') === current) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    </script>
 
     <main>
       <section class="features">
